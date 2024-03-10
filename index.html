@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-Icon Tableiste-->
+    <link rel="icon" href="./icons/logo.png">
+
+    <!-- CSS-Datei -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--Script-Dateien-->
+    <script src="./scripte/script.js"></script>
+    <script src="./scripte/templates.js"></script>
+
+    <title>LiefeRande</title>
+</head>
+
+<!--Funktionen im Body laden -->
+<body onload="renderMenu(), renderBasket()">
+
+    <!--header-->
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./icons/logo.png" alt="Lieferando-Logo">
+                <span>LieferRande</span>
+            </a>
+        </div>
+        <div class="headertext">
+            <h3>Speisekarte</h3>
+        </div>
+        <div class="menu">
+            <img src="./img/germany.png" alt="Flag-Germany">
+            <img src="./img/english.png" alt="Flag-England">
+            <img src="./icons/menu.png" alt="Burgermenu">
+        </div>
+    </header>
+
+    <!--Speisekarte mit Infos und verschiedenen Kategorien-->
+    <section class="main" id="main">
+
+        <!--Impressumm mit JavaScript-->
+        <section id="contentImprint" class="impressum">
+            <div class="content-imprint">
+                <div>
+                    <a onclick="openImprint()" class="click-field">
+                        <img class="plus" src="./icons/close_icon.png" alt="Close-Icon-Imprssum">
+                    </a>
+                </div>
+
+                <div class="declarations-imprint">
+                    <h2>Impressum</h2>
+                    <h3>Angaben gemäß § 5 TMG:</h3>
+
+                    <div>
+                        Maik Wypior<br><br>
+                        Thiemendorfer Str. 41<br>
+                        06796 Sandersdorf/Brehna<br><br>
+                        maikwypior83@outlook.com
+                    </div>
+
+                    <span>Diese Seite wurde aus Übungszwecken erstellt.</span>
+                    <span>Icons wurden verwendet von: <a href="https://www.flaticon.com/de/">https://www.flaticon.com/de/</a>.</span>
+                </div>
+            </div>
+        </section>
+
+        <!--Speisekarte & Infos zur Bestellung-->
+        <div class="store">
+
+            <!--Slideshow-->
+            <div class="slideshow">
+                <div class="slide">
+                    <img src="img/menu_1.jpg" alt="Slidshow">
+                    <div class="slide-textbereich">
+                        <h3 class="slide-ueberschrift">Cheesburger</h3>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/menu_2.jpg" alt="Slidshow">
+                    <div class="slide-textbereich">
+                        <h3 class="slide-ueberschrift">Pizza</h3>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/menu_3.jpg" alt="Slidshow">
+                    <div class="slide-textbereich">
+                        <h3 class="slide-ueberschrift">Schnitzel</h3>
+                    </div>
+                </div>
+                <a class="pfeil pfeil-links" onclick="umschalten(-1)"><spam>&#10094</spam></a>
+                <a class="pfeil pfeil-rechts" onclick="umschalten(1)"><spam>&#10095</spam></a>
+                <ol class="indikatorenliste">
+                    <li class="indikator" onclick="springeZuEintrag(0)">&#8226</li>
+                    <li class="indikator" onclick="springeZuEintrag(1)">&#8226</li>
+                    <li class="indikator" onclick="springeZuEintrag(2)">&#8226</li>
+                </ol>
+            </div>
+            <script src="./scripte/slideshow.js"></script>
+
+            <!--Infos zur Bestellung & Kategorien-->
+            <div class="store-information">
+
+                <div class="top">
+                    <h1>PizZaRino</h1>
+                    <div class="top-icons">
+                        <div class="bordericon">
+                            <img src="./icons/info_icon.png" alt="Info-Icon">
+                        </div>
+                        <div class="bordericon">
+                            <img src="./icons/heart_icon.png" alt="Heart-Icon">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evaluation">
+                    <img src="./icons/star_icon.png" alt="Star-Icon">
+                    <img src="./icons/star_icon.png" alt="Star-Icon">
+                    <img src="./icons/star_icon.png" alt="Star-Icon">
+                    <img src="./icons/star_icon.png" alt="Star-Icon">
+                    <img src="./icons/half_star_icon.png" alt="Half-Star-Icon">
+                    <a href="#">235 Bewertungen</a>
+                </div>
+                <div class="order-infos">
+                    <img src="./icons/shoppen.png" alt="Warenkorb-Icon">
+                    <span>Min. 25.00€</span>
+                    |
+                    <img src="./icons/bicycle_icon.png" alt="Bicycle-Icon">
+                    <span>5.00€</span>
+                </div>
+                <div class="categories">
+                    <div>
+                        <img src="./icons/search.png" alt="Search-Icon">
+                    </div>
+                    <div class="category">
+                        <span>Vorlieben ❤️</span>
+                    </div>
+                    <div class="category">
+                        <span>Pizza</span>
+                    </div>
+                    <div class="category">
+                        <span>Pasta</span>
+                    </div>
+                    <div class="category">
+                        <span>Burger</span>
+                    </div>
+                    <div class="category">
+                        <span>Getränke</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--Bestellen Button im Warenkorb & Mindesbestellwert/Gesamt-->
+            <div class="content" id="content"></div>
+
+            <!--Warenkorb-Button Mobilansicht-->
+            <div class="shoppingcardcontainer" id="shoppingcardcontainer">
+                <div onclick="openMobileBasket()" class="mobileshoppingcard" id="mobileshoppingcard">
+                </div>
+            </div>
+
+            <!--Warenkorb-Bestellung Mobilansicht & Schließen-->
+            <div class="mobile dnone" id="mobile">
+                <div class="head">
+                    <h2>Warenkorb</h2>
+                    <img onclick="closeMobileBasket()" src="./icons/close_icon.png" alt="Close-Icon">
+                </div>
+                <div id="mobilebasket-content"></div>
+                <div class="basket-sum" id="mobilebasket-sum"></div>
+            </div>
+        </div>
+
+        <!--Warenkorb-->
+        <div class="basket" id="basket">
+            <h2>Warenkorb</h2>
+            <img class="shoppen_icon" src="./icons/shoppen.png" alt="Shoppen-Icon">
+            <div id="basket-content"></div>
+            <div class="basket-sum" id="basket-sum"></div>
+        </div>
+    </section>
+
+    <!--Footer-Bereich-->
+    <footer class="imprint" >
+        <a onclick="openImprint()">Impressum</a>
+    </footer>
+
+</body>
+</html>
